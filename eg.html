@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<style>
+    .box{
+        padding: 15px;
+        background: red;
+    }
+    .border{
+        border: 1px solid #000;
+    }
+</style>
+<body>
+<div id="root">
+    <div class="box" v-show="isShowBox==1" v-bind:class="{border:isShow}" v-bind:style="{background:text}">v-model</div>
+    <select name="" id="text" v-model="text">
+        <option value="">请选择</option>
+        <option v-bind:value="item" v-for="item in colors">{{item}}</option>
+    </select>
+    <label for="">
+        <input type="checkbox" name="" id="" v-model="isShow">
+        是否显示边框
+    </label>
+    <label for="">
+        <input type="radio" name="toggle" id="" value="1" v-model="isShowBox">
+        显示
+    </label>
+    <label for="">
+        <input type="radio" name="toggle" id="" value="0" v-model="isShowBox">
+        隐藏
+    </label>
+</div>
+</body>
+</html>
+<script>
+    new Vue({
+        el:"#root",
+        data:{
+            colors:['pink','blue','green','yellow'],
+            text:"",
+            isShow:false,
+            isShowBox:1,
+        }
+    })
+</script>
